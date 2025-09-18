@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rohit Modi — Resume</title>
+  <style>
+    :root{
+      --bg:#0f1113;
+      --card:#131519;
+      --muted:#9aa2a6;
+      --accent:#00b7a8;
+      --text:#e6eef0;
+      --glass: rgba(255,255,255,0.03);
+      --gap:16px;
+      --max-width:900px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(1200px 400px at 10% 10%, rgba(0,183,168,0.06), transparent),
+                  radial-gradient(1000px 300px at 90% 90%, rgba(0,167,196,0.03), transparent),
+                  var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:24px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    main{
+      width:100%;
+      max-width:var(--max-width);
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-radius:12px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.7);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    /* Header */
+    header{
+      padding:24px;
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .left{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .avatar{
+      width:72px;
+      height:72px;
+      border-radius:10px;
+      background:var(--glass);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:var(--accent);
+      font-size:20px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing:0.2px;
+    }
+    p.role{
+      margin:2px 0 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .contact{
+      text-align:right;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .contact a{ color:var(--accent); text-decoration:none; }
+    .contact a:hover{ text-decoration:underline; }
+
+    /* Layout */
+    .content{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: var(--gap);
+      padding:20px;
+    }
+
+    @media(min-width:900px){
+      .content{
+        grid-template-columns: 1fr 320px;
+        padding:28px;
+      }
+    }
+
+    /* Left column (main) */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:18px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    h2{
+      margin:0 0 8px 0;
+      color:var(--accent);
+      font-size:15px;
+    }
+    .muted{ color:var(--muted); font-size:13px; margin-bottom:8px; }
+
+    /* lists */
+    ul.inline{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    ul.inline li{
+      background:#0d0f10;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.02);
+      font-size:13px;
+    }
+
+    .section + .section{ margin-top:12px; }
+
+    .edu-item{
+      margin-bottom:10px;
+    }
+    .edu-item b{ display:block; font-size:14px; color:#fff; }
+    .edu-item .meta{ color:var(--muted); font-size:13px; margin-top:4px; }
+
+    .project{
+      margin-bottom:12px;
+    }
+    .project .title{ font-weight:600; }
+    .project p{ color:var(--muted); font-size:14px; margin:6px 0 8px 0; }
+
+    a.btn{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:8px;
+      background:linear-gradient(180deg,var(--accent), #009384);
+      color:#04100f;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow: 0 6px 20px rgba(0,183,168,0.12);
+      border: none;
+    }
+    a.ghost{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(0,183,168,0.12);
+    }
+
+    /* Right column (sidebar) */
+    aside{
+      display:flex;
+      flex-direction:column;
+      gap:var(--gap);
+    }
+    .skill-list{ display:flex; flex-wrap:wrap; gap:8px; }
+    .skill-pill{
+      background:#0e1113;
+      padding:8px 10px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.02);
+      font-size:13px;
+      color:var(--muted);
+    }
+    .cert, .ach{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      padding:14px;
+      border-top:1px solid rgba(255,255,255,0.02);
+      margin-top:12px;
+    }
+
+    /* Print-friendly */
+    @media print{
+      body{ background:#fff; color:#000; }
+      main{ box-shadow:none; border:none; background:transparent; }
+      header, footer{ display:none; }
+      a.btn, a { color:#000; text-decoration:underline; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="left">
+        <div class="avatar">RM</div>
+        <div>
+          <h1>Rohit Modi</h1>
+          <p class="role">Enthusiastic Computer Science student / Aspiring Developer</p>
+        </div>
+      </div>
+      <div class="contact">
+        <div>Phone: +91-9893925041</div>
+        <div>     Email: <a href="mailto:your.email@example.com">rohitmodi1404@gmail.com</a></div>
+        
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- left: main resume -->
+      <div>
+        <section class="card section">
+          <h2>Career Objective</h2>
+          <p class="muted">
+            Enthusiastic Computer Science student / aspiring developer skilled in Python, Flask, SQL, HTML/CSS,
+            NumPy, and Pandas. Seeking an internship or entry-level role in backend/web development or data analytics
+            to apply technical knowledge and build real-world projects.
+          </p>
+        </section>
+
+        <section class="card section">
+          <h2>Education</h2>
+
+          <div class="edu-item">
+            <b>Bachelor of Technology (Computer Science)</b>
+            <div class="meta">Malwa institude of Technology, Indore | Passing Year: 2026 | CGPA: 6.44 </div>
+          </div>
+
+          <div class="edu-item">
+            <b>Higher Secondary (Class XII)</b>
+            <div class="meta">Govt. Model H. S. School, Dewas | M. P. Board | Passing Year: 2022 | Percentage: 69.75%</div>
+          </div>
+
+          <div class="edu-item">
+            <b>High School (Class X)</b>
+            <div class="meta">Govt. Model H. S. School, dewas | M. P. Board | Passing Year: 2020 | Percentage: 88.75%</div>
+          </div>
+        </section>
+
+        <section class="card section">
+          <h2>Projects</h2>
+
+          <div class="project">
+            <div class="title">Pet Friend (Flask, Python, HTML/CSS)</div>
+            <p>AI-based pet healthcare assistant with symptom-based diagnosis flows, vet appointment booking, and store locator.
+               <br>
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="title">multi-clipboard manager(pyperclip,pykeyboard)</div>
+            <p>A Python-based multi-clipboard manager that allows users to store multiple copied items using shortcuts (Ctrl+C+1, Ctrl+C+2, …) and paste them back with corresponding keys (Ctrl+Shift+1, Ctrl+Shift+2, …). This improves productivity by enabling quick access to frequently copied text, unlike the default single-slot system clipboard.</p>
+          </div>
+
+          <div class="project">
+           
+          </div>
+        </section>
+      </div>
+
+      <!-- right: sidebar -->
+      <aside>
+        <div class="card cert">
+          <h2>Technical Skills</h2>
+          <div class="skill-list" style="margin-top:10px;">
+            <div class="skill-pill">Python</div>
+            <div class="skill-pill">Flask</div>
+            <div class="skill-pill">HTML</div>
+            <div class="skill-pill">CSS</div>
+            <div class="skill-pill">SQL</div>
+            <div class="skill-pill">NumPy</div>
+            <div class="skill-pill">Pandas</div>
+            <div class="skill-pill">Cisco Packet Tracer</div>
+          </div>
+        </div>
+
+        <div class="card cert">
+          <h2>Certifications</h2>
+          <p class="muted" style="margin-top:8px;">
+            • complete Python  —  Udemy
+          </p>
+        </div>
+
+        <div class="card ach">
+          <h2>Achievements</h2>
+          <p class="muted">Selected as a team member for Smart India Hackathon (SIH) representing my college.</p>
+        </div>
+
+       
+      </aside>
+    </div>
+
+    <footer>
+      <div>References available on request • © 2025 Rohit Modi</div>
+    </footer>
+  </main>
+</body>
+</html>
